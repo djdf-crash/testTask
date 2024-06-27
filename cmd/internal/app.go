@@ -1,7 +1,6 @@
 package internal
 
 import (
-	"context"
 	"github.com/gofiber/fiber/v2/log"
 	"io"
 	"os"
@@ -14,7 +13,6 @@ import (
 )
 
 type App struct {
-	ctx context.Context
 	db  io.Closer
 	srv server.IServer
 }
@@ -64,6 +62,5 @@ func NewApp(cfg config.Config) (*App, error) {
 	return &App{
 		srv: srv,
 		db:  d,
-		ctx: context.Background(),
 	}, nil
 }
